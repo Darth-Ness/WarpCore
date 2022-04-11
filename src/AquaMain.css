@@ -1,0 +1,20 @@
+
+.header,.banner,.card,button,textarea{padding: 10px;;border-radius: 20px;}
+button:hover {opacity: 0.9; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);}
+textarea {width: 50%;height: 100%;resize: none;font-weight: 900; font-size:16;}
+.header,.banner {border-radius: 0px;}
+.header {margin-bottom: 5%;}
+.fillwidth {width: 100%}
+.card {width: fit-content;max-width: 60%; margin-bottom: 10%;}
+.sidebar {height: 100%;position: absolute;bottom: -20%;width: fit-content;}
+body{font-family:Arial, sans-serif;margin: 0;font-weight: 900}
+button {border: none;transition: box-shadow 500ms, background-color 500ms;margin-right: 7px;font-family: inherit;border-radius: 7px;}
+input {border: 3px solid rgba(0, 0, 0,0);border-radius: 8px;padding: 10px;font-family: inherit;transition: border-bottom 200ms;outline: none;font-weight: 900;}
+.left {float: left;}
+.right {float: right;}
+.center {text-align: center}
+.bottom {position: fixed;bottom: 0;}
+.top {position: fixed;top: 0;}
+.screen {height: 100%}
+a {text-decoration: none; background-color: inherit}
+select {padding: 5px 5px;border: 1px solid;border-radius: 4px}

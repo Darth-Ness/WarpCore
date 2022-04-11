@@ -1,0 +1,12 @@
+/*Credit to the Nord Theme team for this theme which is based off of the Polar Night */
+@import "AquaMain.css";
+.header,.banner {background-color: #3b4252;}
+.card {background-color: #3b4252;}
+body,.hidebg,textarea {background-color: #2e3440;}
+button {background-color: #1c1f25;}
+button:hover {box-shadow: 0 4px 10px rgb(110, 110, 110)}
+.button-highlight {background-color: #5e81ac; color: #fff}
+a,body,textarea, button {color:#fff;}
+input {background-color: #4c566a;color: rgba(208, 188, 240, 0.8);}
+input:focus {border-bottom: 3px solid #24406b;}
+select {background:#2e3440;color:#5e81ac}
