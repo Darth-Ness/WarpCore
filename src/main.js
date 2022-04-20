@@ -2,21 +2,17 @@
 var numberOfTabs = 0;
 var currentTab = 0; 
 var lastTab = 0;
+var closedTab = false;
 var webview = document.getElementById("page0") ;
 //navigation 
 
 document.getElementById("searchbar").addEventListener('keyup', (e) => {
     if(e.key == "Enter") {
-        webview.src = document.getElementById("searchbar").value; 
+        webview.src = "https://swisscows.com/web?query=" + document.getElementById("searchbar").value;
     }
 })
-document.getElementById("back").addEventListener('click', () => {
-   webview.goBack();
-})
-
-document.getElementById("front").addEventListener('click', () => {
-    webview.goForward();
-})
+document.getElementById("back").addEventListener('click', () => { webview.goBack(); })
+document.getElementById("front").addEventListener('click', () => { webview.goForward(); })
 
 //Tabs
 //Don't worry NineTails, your tab code was not copyed.
@@ -45,17 +41,21 @@ document.getElementById("newtab").addEventListener('click', () => {
 })
 
 function changeTab(newTab) {
-    console.log(lastTab == newTab)
-    console.log(newTab)
-    console.log(lastTab )
     //Hide old tab
-    document.getElementById(lastTab).setAttribute("class", "not-selectedTAB")
-    document.getElementById("page" + lastTab).setAttribute("style", "display:none;height:88%;width:100%");
-    
+    if (closedTab == false) {
+        document.getElementById(lastTab).setAttribute("class", "not-selectedTAB");
+        document.getElementById("page" + lastTab).setAttribute("style", "display:none;height:88%;width:100%");
+    } 
     //Show new tab
     document.getElementById(newTab).setAttribute("class", "button-highlight");
-    document.getElementById("page" + newTab).setAttribute("style", "display: default;height:88%;width:100%")
-    webview = document.getElementById("page" + "newTab")
+    document.getElementById("page" + newTab).setAttribute("style", "display: default;height:88%;width:100%");
+    webview = document.getElementById("page" + newTab);
     currentTab = newTab;
     lastTab = newTab;
+    closedTab = false;
 }
+document.getElementById("closetab").addEventListener("click", () => {
+    document.getElementById(currentTab).remove();
+    document.getElementById("page" + currentTab).remove();
+    closedTab = true;
+})
