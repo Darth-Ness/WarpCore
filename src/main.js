@@ -37,6 +37,7 @@ document.getElementById("newtab").addEventListener('click', () => {
     document.getElementById("tabbar").append(newTabs);
     newPage.addEventListener('dom-ready', () => {
         newTabs.innerText = newPage.getTitle();
+        document.getElementById("searchbar").value = newPage.getURL();
     })
 })
 
@@ -47,9 +48,10 @@ function changeTab(newTab) {
         document.getElementById("page" + lastTab).setAttribute("style", "display:none;height:88%;width:100%");
     } 
     //Show new tab
-    document.getElementById(newTab).setAttribute("class", "button-highlight");
+    document.getElementById(newTab).setAttribute("class", "bgBlue4");
     document.getElementById("page" + newTab).setAttribute("style", "display: default;height:88%;width:100%");
     webview = document.getElementById("page" + newTab);
+    document.getElementById("searchbar").value = webview.getURL();
     currentTab = newTab;
     lastTab = newTab;
     closedTab = false;
