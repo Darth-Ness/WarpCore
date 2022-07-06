@@ -1,17 +1,18 @@
-<div class="browserUI" style="padding: 5px;">
+<div class="browserUI" style="height: 100vh;">
 
     <div class="banner navbar center">
-        <button id="back" class="bgNone left"><img src="iconGoBack.svg"></button>
-        <button id="front" class="bgNone left"><img src="iconGoFoward.svg"></button> 
+        <button id="back" class="bgNone left"><img src="assets/iconGoBack.svg"></button>
+        <button id="front" class="bgNone left"><img src="assets/iconGoFoward.svg"></button> 
         <input  id="searchbar" style="width:80%"></input>
-        <button id="newtab" class="right bgNone"><img src="newtab.svg"></button>
-        <button id="closetab" class="right bgNone"><img src="close.svg"></button>
+        <button id="newtab" class="right bgNone"><img src="assets/newtab.svg"></button>
+        <button id="closetab" class="right bgNone"><img src="assets/close.svg"></button>
+        <button id="refresh" class="bgNone left"><img src="assets/iconRefresh.svg"</button>
     </div>
 
     <div id="tabbar" class="banner"> <button id="0" class="bgBlue4" onclick="changeTab(0)">Scratch - Imagine, Program, Share</button> </div>  
 
+<div id="pages"> <webview id="page0" src="https://darth-ness.github.io/WarpCore-Start/"  style="display:inline-flex; width:100%; height:88%"></webview> </div>
 </div>
-<div id="pages"> <webview id="page0" src="https://www.scratch.mit.edu"  style="display:inline-flex; width:100%; height:88%"></webview> </div>
 
 <div class="dependdencies">
     <link rel="stylesheet"  href="AquaMain.css">

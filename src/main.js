@@ -13,6 +13,7 @@ document.getElementById("searchbar").addEventListener('keyup', (e) => {
 })
 document.getElementById("back").addEventListener('click', () => { webview.goBack(); })
 document.getElementById("front").addEventListener('click', () => { webview.goForward(); })
+document.getElementById("refresh").addEventListener('click', () => {webview.reload(); })
 
 //Tabs
 //Don't worry NineTails, your tab code was not copyed.
