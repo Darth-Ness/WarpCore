@@ -1,5 +1,5 @@
 # WarpCore
-The lighting fast Electron browser
+The lightning fast Electron browser
 
 # Lightweight
 WarpCore doesn't use a ton of frameworks and dependencies. We also try to keep the amount of code down to bare minimum.
