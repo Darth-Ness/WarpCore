@@ -3,18 +3,19 @@ const path = require('path');
 var mainWindow;
 const { VM } = require('vm2');
 var dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Preferences' : process.env.HOME + "/.local/share");
-dataDirectory = path.join(dataDirectory, "/WarpCore");
+dataDirectory = path.join(process.env.HOME, "/.warpcore");
 var addons = [];
+const fs = require('fs');
 
 try {
-  var fileLocations = fs.readdirSync(path.join(dataDirectory, "plugins"));
+  var fileLocations = fs.readdirSync(path.join(dataDirectory, "addons"));
   for (var i in fileLocations) {
-    var fileLocation = path.join(dataDirectory, "plugins", fileLocations[i]);
+    var fileLocation = path.join(dataDirectory, "addons", fileLocations[i]);
     if (fs.existsSync(fileLocation)) {
-      addons.push(fs.readFileSync(fileLocation));
+      addons.push(fs.readFileSync(fileLocation).toString());
     }
   }
-} catch { }
+} catch (e) {}
 
 const initializeExtensionContext = (code) => {
   var vm = new VM();
