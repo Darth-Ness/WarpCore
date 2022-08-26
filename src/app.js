@@ -2,7 +2,20 @@ const { app, BrowserWindow, BrowserView } = require('electron');
 const path = require('path');
 const vm = require('vm');
 var mainWindow;
-const {VM} = require('vm2');
+const { VM } = require('vm2');
+var dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Preferences' : process.env.HOME + "/.local/share");
+dataDirectory = path.join(dataDirectory, "/WarpCore");
+var addons = [];
+
+try {
+  var fileLocations = fs.readdirSync(path.join(dataDirectory, "plugins"));
+  for (var i in fileLocations) {
+    var fileLocation = path.join(dataDirectory, "plugins", fileLocations[i]);
+    if (fs.existsSync(fileLocation)) {
+      addons.push(fs.readFileSync(fileLocation));
+    }
+  }
+} catch { }
 
 const initializeExtensionContext = (code) => {
   var vm = new VM();
@@ -20,12 +33,15 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    webPreferences:{ webviewTag:true },
+    webPreferences: { webviewTag: true },
     autoHideMenuBar: true
   });
 
   mainWindow.loadFile(path.join(__dirname, 'index.html')).then(() => {
     //initializeExtensionContext("for (var i = 0; i < 10; i++) { openTab('https://google.com/') }");
+    for (var i in addons) {
+      initializeExtensionContext(addons[i]);
+    }
   });
 };
 
