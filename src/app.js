@@ -1,6 +1,5 @@
 const { app, BrowserWindow, BrowserView } = require('electron');
 const path = require('path');
-const vm = require('vm');
 var mainWindow;
 const { VM } = require('vm2');
 var dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Preferences' : process.env.HOME + "/.local/share");
