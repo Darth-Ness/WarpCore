@@ -60,6 +60,8 @@
     "electron-forge-maker-appimage": "https://github.com/Marcus10110/electron-forge-maker-appimage.git"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.1.0",
+    "vm2": "^3.9.10"
   }
 }
