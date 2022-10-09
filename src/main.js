@@ -28,7 +28,7 @@ document.getElementById("refresh").addEventListener('click', () => { webview.rel
 webview.addEventListener("dom-ready", () => {
     document.getElementById(0).innerText = webview.getTitle();
 })
-document.getElementById("newtab").addEventListener('click',openTab);
+document.getElementById("newtab").addEventListener('click', () => { openTab('https://darth-ness.github.io/WarpCore-Start/'); }) 
 
 function openTab(url) {
     var newTabs = document.createElement("button");
@@ -37,7 +37,7 @@ function openTab(url) {
     currentTab = numberOfTabs;
 
     var newPage = document.createElement("webview");
-    newPage.src = url || "https://darth-ness.github.io/WarpCore-Start/";
+    newPage.src = url;
     newPage.id = "page" + numberOfTabs;
     newPage.setAttribute("style", "height:88%; width:100%;display:none;");
     document.getElementById("pages").append(newPage);
