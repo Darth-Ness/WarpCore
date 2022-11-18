@@ -3,6 +3,7 @@ var numberOfTabs = 0;
 var currentTab = 0;
 var lastTab = 0;
 var closedTab = false;
+var listTabs = [];
 var webview = document.getElementById("page0");
 var promptList = [];
 var activePrompt = null;
@@ -50,6 +51,7 @@ function openTab(url) {
         newTabs.innerText = newPage.getTitle();
         document.getElementById("searchbar").value = newPage.getURL();
     })
+    listTabs.append(url);
 }
 
 function changeTab(newTab) {
