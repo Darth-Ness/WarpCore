@@ -28,7 +28,7 @@ document.getElementById("refresh").addEventListener('click', () => { webview.rel
 webview.addEventListener("dom-ready", () => {
     document.getElementById(0).innerText = webview.getTitle();
 })
-document.getElementById("newtab").addEventListener('click', () => { openTab('https://darth-ness.github.io/WarpCore-Start/'); }) 
+document.getElementById("newtab").addEventListener('click', () => { openTab('https://darth-ness.github.io/UniversalSearch/'); }) 
 
 function openTab(url) {
     var newTabs = document.createElement("button");
