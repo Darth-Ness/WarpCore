@@ -64,6 +64,7 @@ function openTab(url) {
     //Set indication of which tab is selected.
     newTabs.id = numberOfTabs;
     newTabs.innerText = "New Tab";
+    newTabs.style = "font-size:16";
     document.getElementById("tabbar").append(newTabs);
     newPage.addEventListener('dom-ready', () => {
         newTabs.innerText = newPage.getTitle();
