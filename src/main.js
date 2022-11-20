@@ -23,7 +23,7 @@ document.getElementById("searchbar").addEventListener('keyup', (e) => {
 document.getElementById("back").addEventListener('click', () => { webview.goBack(); })
 document.getElementById("front").addEventListener('click', () => { webview.goForward(); })
 document.getElementById("refresh").addEventListener('click', () => { webview.reload(); })
-document.getElementById("newtab").addEventListener('click', () => { openTab('https://darth-ness.github.io/WarpCore-Start/'); }) 
+document.getElementById("newtab").addEventListener('click', () => { openTab('https://darth-ness.github.io/UniversalSearch/'); }) 
 document.getElementById("closetab").addEventListener("click", () => {
     document.getElementById(currentTab).remove();
     document.getElementById("page" + currentTab).remove();
@@ -46,7 +46,7 @@ if (localStorage.getItem("tabs") != null) {
 else {
     closedTab = true;
     numberOfTabs = -1;
-    openTab('https://darth-ness.github.io/WarpCore-Start/');
+    openTab('https://darth-ness.github.io/UniversalSearch/);
 }
 
 function openTab(url) {
