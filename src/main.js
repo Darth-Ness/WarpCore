@@ -3,7 +3,7 @@ var numberOfTabs = 0;
 var currentTab = 0;
 var lastTab = 0;
 var closedTab = false;
-var listTabs = [];
+var listTabs = ['test'];
 var webview = document.getElementById("page0");
 var promptList = [];
 var activePrompt = null;
@@ -23,13 +23,31 @@ document.getElementById("searchbar").addEventListener('keyup', (e) => {
 document.getElementById("back").addEventListener('click', () => { webview.goBack(); })
 document.getElementById("front").addEventListener('click', () => { webview.goForward(); })
 document.getElementById("refresh").addEventListener('click', () => { webview.reload(); })
+document.getElementById("newtab").addEventListener('click', () => { openTab('https://darth-ness.github.io/WarpCore-Start/'); }) 
+document.getElementById("closetab").addEventListener("click", () => {
+    document.getElementById(currentTab).remove();
+    document.getElementById("page" + currentTab).remove();
+    closedTab = true;
+})
 
 //Tabs
 //Don't worry NineTails, your tab code was not copyed.
-webview.addEventListener("dom-ready", () => {
-    document.getElementById(0).innerText = webview.getTitle();
-})
-document.getElementById("newtab").addEventListener('click', () => { openTab('https://darth-ness.github.io/UniversalSearch/'); }) 
+
+if (localStorage.getItem("tabs") != null) {
+    var i = 0;
+    listTabs = localStorage.getItem("tabs").split(',');
+    currentTab = localStorage.getItem("currentTab");
+    closedTab = true;
+    while (i < listTabs.length) {
+        openTab(listTabs[i]);
+        i++;
+    } 
+}
+else {
+    closedTab = true;
+    numberOfTabs = -1;
+    openTab('https://darth-ness.github.io/WarpCore-Start/');
+}
 
 function openTab(url) {
     var newTabs = document.createElement("button");
@@ -51,7 +69,6 @@ function openTab(url) {
         newTabs.innerText = newPage.getTitle();
         document.getElementById("searchbar").value = newPage.getURL();
     })
-    listTabs.append(url);
 }
 
 function changeTab(newTab) {
@@ -68,9 +85,19 @@ function changeTab(newTab) {
     currentTab = newTab;
     lastTab = newTab;
     closedTab = false;
+    saveTabs();
 }
-document.getElementById("closetab").addEventListener("click", () => {
-    document.getElementById(currentTab).remove();
-    document.getElementById("page" + currentTab).remove();
-    closedTab = true;
-})
+
+//This loads currently open tabs into localstorage
+function saveTabs() {
+    updateTabs();
+    localStorage.setItem('tabs', listTabs.toString());
+    localStorage.setItem('currentTab', currentTab);
+}
+function updateTabs() {
+    var i = 0;
+    while (i < listTabs.length) {
+        listTabs[i] = document.getElementById("page" + i).src; 
+        i++;
+    }
+}
