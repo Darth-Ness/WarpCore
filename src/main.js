@@ -46,7 +46,7 @@ if (localStorage.getItem("tabs") != null) {
 else {
     closedTab = true;
     numberOfTabs = -1;
-    openTab('https://darth-ness.github.io/UniversalSearch/);
+    openTab('https://darth-ness.github.io/UniversalSearch/');
 }
 
 function openTab(url) {
