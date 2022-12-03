@@ -98,7 +98,7 @@ function saveTabs() {
 function updateTabs() {
     var i = 0;
     while (i < listTabs.length) {
-        listTabs[i] = document.getElementById("page" + i).src; 
+        listTabs[i] = document.getElementById("page" + i).getURL(); 
         i++;
     }
 }
